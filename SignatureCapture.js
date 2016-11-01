@@ -97,7 +97,16 @@ SignatureCapture.propTypes = {
     saveImageFileInExtStorage: PropTypes.bool,
     viewMode: PropTypes.string,
     showNativeButtons: PropTypes.bool,
-    maxSize:PropTypes.number
+    maxSize:PropTypes.number,
+    backgroundColor: PropTypes.string,
+    strokeColor: PropTypes.string,
+    showDashedLine: PropTypes.bool,
+    showDashedBorder: PropTypes.bool,
+};
+
+SignatureCapture.defaultProps = {
+    showDashedLine: true,
+    showDashedBorder: true,
 };
 
 var RSSignatureView = requireNativeComponent('RSSignatureView', SignatureCapture, {
