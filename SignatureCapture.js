@@ -3,9 +3,7 @@
 
 var ReactNative = require('react-native');
 var React = require('react');
-var {
-    PropTypes
-} = React;
+var PropTypes = require('prop-types');
 var {
     requireNativeComponent,
     View,
@@ -69,7 +67,7 @@ class SignatureCapture extends React.Component {
 
     render() {
         return (
-            <RSSignatureView {...this.props} style={{ flex: 1 }} onChange={this.onChange} />
+            <RSSignatureView {...this.props} onChange={this.onChange} />
         );
     }
 
@@ -97,16 +95,12 @@ SignatureCapture.propTypes = {
     saveImageFileInExtStorage: PropTypes.bool,
     viewMode: PropTypes.string,
     showNativeButtons: PropTypes.bool,
-    maxSize:PropTypes.number,
+    showTitleLabel: PropTypes.bool,
+    maxSize:PropTypes.number
     backgroundColor: PropTypes.string,
     strokeColor: PropTypes.string,
     showDashedLine: PropTypes.bool,
     showDashedBorder: PropTypes.bool,
-};
-
-SignatureCapture.defaultProps = {
-    showDashedLine: true,
-    showDashedBorder: true,
 };
 
 var RSSignatureView = requireNativeComponent('RSSignatureView', SignatureCapture, {
