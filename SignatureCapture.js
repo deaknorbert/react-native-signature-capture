@@ -96,7 +96,7 @@ SignatureCapture.propTypes = {
     viewMode: PropTypes.string,
     showNativeButtons: PropTypes.bool,
     showTitleLabel: PropTypes.bool,
-    maxSize:PropTypes.number
+    maxSize: PropTypes.number,
     backgroundColor: PropTypes.string,
     strokeColor: PropTypes.string,
     showDashedLine: PropTypes.bool,
