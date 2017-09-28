@@ -9,7 +9,6 @@
 @property (nonatomic, strong) PPSSignatureView *sign;
 @property (nonatomic, strong) RSSignatureViewManager *manager;
 @property (nonatomic, strong) UIColor *strokeColor;
-@property (nonatomic) BOOL *showDashedLine;
 @property (nonatomic) BOOL *showDashedBorder;
 -(void) onSaveButtonPressed;
 -(void) onClearButtonPressed;

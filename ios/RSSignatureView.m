@@ -72,7 +72,7 @@
 
 		if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
 
-			if (self.showDashedLine) {
+			if (_showTitleLabel) {
 				titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 24)];
 				[titleLabel setCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height - 120)];
 
@@ -114,7 +114,7 @@
 		}
 		else {
 
-			if (self.showDashedLine) {
+			if (_showTitleLabel) {
 				titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.height - 80, 24)];
 				[titleLabel setCenter:CGPointMake(40, self.bounds.size.height/2)];
 				[titleLabel setTransform:CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(90))];

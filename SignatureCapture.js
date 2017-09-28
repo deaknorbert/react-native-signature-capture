@@ -103,6 +103,11 @@ SignatureCapture.propTypes = {
     showDashedBorder: PropTypes.bool,
 };
 
+SignatureCapture.defaultProps = {
+    strokeColor: 'black',
+    backgroundColor: 'white',
+}
+
 var RSSignatureView = requireNativeComponent('RSSignatureView', SignatureCapture, {
     nativeOnly: { onChange: true }
 });

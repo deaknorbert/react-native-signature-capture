@@ -86,6 +86,13 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
     this.maxSize = size;
   }
 
+  public void setStrokeColor(Integer color) {
+    this.signatureView.setStrokeColor(color);
+  }
+
+  public void setBackgroundColor(Integer color) {
+    this.signatureView.setBackgroundColor(color);
+  }
 
   private LinearLayout buttonsLayout() {
 
