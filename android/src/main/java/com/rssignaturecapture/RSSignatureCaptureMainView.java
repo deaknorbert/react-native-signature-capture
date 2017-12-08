@@ -1,5 +1,9 @@
 package com.rssignaturecapture;
 
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.util.Log;
 import android.view.ViewGroup;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
@@ -171,13 +175,22 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
         out.close();
       }
 
-
-      ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
       Bitmap resizedBitmap = getResizedBitmap(this.signatureView.getSignature());
-      resizedBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+      resizedBitmap = resizedBitmap.copy(Bitmap.Config.ARGB_8888,true);
+
+      for (int x = 0; x < resizedBitmap.getWidth(); x++) {
+          for (int y = 0; y < resizedBitmap.getHeight(); y++) {
+            if (resizedBitmap.getPixel(x, y) != Color.BLACK) {
+              resizedBitmap.setPixel(x, y, Color.TRANSPARENT);
+            }
+          }
+        }
 
 
-      byte[] byteArray = byteArrayOutputStream.toByteArray();
+      ByteArrayOutputStream stream = new ByteArrayOutputStream();
+      resizedBitmap.setHasAlpha(true);
+      resizedBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+      byte[] byteArray = stream.toByteArray();
       String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
 
       WritableMap event = Arguments.createMap();
