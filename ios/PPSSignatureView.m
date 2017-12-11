@@ -293,6 +293,7 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 	UIImage *signatureImg;
 	UIImage *snapshot = [self snapshot];
 	
+	
 	if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
 		//signature
 		if (square) {
